@@ -11,4 +11,16 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :password, length: { minimum: 6 }
 
+  def total_expenses
+    self.user_expenses.reduce(0) { |sum, e| e.portion + sum}
+  end
+
+  def total_owed
+    total_expenses - total_paid
+  end
+
+  def total_paid
+    self.user_expenses.reduce(0) { |sum, e| e.paid + sum}
+  end
+
 end
