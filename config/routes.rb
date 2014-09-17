@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   get '/users/new' => 'users#new'
   post '/users' => 'users#create'
-  get '/users/:id' => 'users#show', as: :user_show_path
-  get '/users/:id/edit' => 'users#edit'
-  put '/users/:id' => 'users#update'
+  get '/users/:id' => 'users#show', as: :user_show
+  get '/users/:id/edit' => 'users#edit', as: :user_edit
+  put '/users/:id' => 'users#update', as: :user_update
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

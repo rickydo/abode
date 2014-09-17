@@ -1,10 +1,10 @@
 require 'spec_helper'
 describe Dwelling do
-  let(:test_dwelling){Dwelling.create(address: "1234 W. Fulton", name: "winterfell", admin_id: 1 )}
-  describe "Dwelling" do
-    it "should return the total of all expenses for dwelling's users" do
+  let(:test_dwelling){Dwelling.first}
+  describe "#total_expenses" do
+    it "should return the total of all expenses for the dwelling" do
       test_dwelling
-      expect(Dwelling.all.count).to eq(1)
+      expect(test_dwelling.total_expenses).to eq(2320)
     end
   end
 
