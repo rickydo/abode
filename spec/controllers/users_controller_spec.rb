@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe UsersController do
+<<<<<<< HEAD
   describe 'sign up' do
     it 'should show sign up page without session active' do
       get :new
