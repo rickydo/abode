@@ -41,4 +41,8 @@ gem 'debugger', group: [:development, :test]
 gem 'faker', group: [:development, :test]
 gem 'capybara', group: [:development, :test]
 gem 'rspec-rails', group: [:development, :test]
+
 gem 'factory_girl_rails', '~> 4.0'
+
+gem 'launchy', group: [:development, :test]
+

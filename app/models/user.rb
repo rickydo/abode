@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :user_expenses
   has_many :comments
 
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
+
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :password, length: { minimum: 6 }
 end
