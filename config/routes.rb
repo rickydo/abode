@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get '/users/new' => 'users#new'
   post '/users' => 'users#create'
-  get '/users/:id' => 'users#show'
+  get '/users/:id' => 'users#show', as: :user_show_path
   get '/users/:id/edit' => 'users#edit'
   put '/users/:id' => 'users#update'
 
