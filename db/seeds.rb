@@ -16,25 +16,25 @@ house1 = Dwelling.create(address: "1238 W. Fulton", name: "winterfelyul", admin_
   user4 = house1.users.create(name: "kyle", email: "sadffdsa@gmail.com", phone: "5473341606", password: "password" )
 
 
-  user1.user_expenses.create(expense_id: expense1.id, owed: 600.00, paid: 0)
-  user2.user_expenses.create(expense_id: expense1.id, owed: 500.00, paid: 0)
-  user3.user_expenses.create(expense_id: expense1.id, owed: 500.00, paid: 0)
-  user4.user_expenses.create(expense_id: expense1.id, owed: 400.00, paid: 400)
+  user1.user_expenses.create(expense_id: expense1.id, portion: 600.00, paid: 0)
+  user2.user_expenses.create(expense_id: expense1.id, portion: 500.00, paid: 0)
+  user3.user_expenses.create(expense_id: expense1.id, portion: 500.00, paid: 0)
+  user4.user_expenses.create(expense_id: expense1.id, portion: 400.00, paid: 400)
 
-  user1.user_expenses.create(expense_id: expense2.id, owed: 25.00, paid: 25)
-  user2.user_expenses.create(expense_id: expense2.id, owed: 25.00, paid: 20)
-  user3.user_expenses.create(expense_id: expense2.id, owed: 25.00, paid: 25)
-  user4.user_expenses.create(expense_id: expense2.id, owed: 25.00, paid: 10)
+  user1.user_expenses.create(expense_id: expense2.id, portion: 25.00, paid: 25)
+  user2.user_expenses.create(expense_id: expense2.id, portion: 25.00, paid: 20)
+  user3.user_expenses.create(expense_id: expense2.id, portion: 25.00, paid: 25)
+  user4.user_expenses.create(expense_id: expense2.id, portion: 25.00, paid: 10)
 
-  user1.user_expenses.create(expense_id: expense3.id, owed: 50.00, paid: 0)
-  user2.user_expenses.create(expense_id: expense3.id, owed: 50.00, paid: 0)
-  user3.user_expenses.create(expense_id: expense3.id, owed: 50.00, paid: 0)
-  user4.user_expenses.create(expense_id: expense3.id, owed: 50.00, paid: 0)
+  user1.user_expenses.create(expense_id: expense3.id, portion: 50.00, paid: 0)
+  user2.user_expenses.create(expense_id: expense3.id, portion: 50.00, paid: 0)
+  user3.user_expenses.create(expense_id: expense3.id, portion: 50.00, paid: 0)
+  user4.user_expenses.create(expense_id: expense3.id, portion: 50.00, paid: 0)
 
-  user1.user_expenses.create(expense_id: expense4.id, owed: 5.00, paid: 5)
-  user2.user_expenses.create(expense_id: expense4.id, owed: 5.00, paid: 0)
-  user3.user_expenses.create(expense_id: expense4.id, owed: 5.00, paid: 0)
-  user4.user_expenses.create(expense_id: expense4.id, owed: 5.00, paid: 0)
+  user1.user_expenses.create(expense_id: expense4.id, portion: 5.00, paid: 5)
+  user2.user_expenses.create(expense_id: expense4.id, portion: 5.00, paid: 0)
+  user3.user_expenses.create(expense_id: expense4.id, portion: 5.00, paid: 0)
+  user4.user_expenses.create(expense_id: expense4.id, portion: 5.00, paid: 0)
 
 
 house2 = Dwelling.create(address: "1239 W. Fulton", name: "winterftyuell", admin_id: 5 )
