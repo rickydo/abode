@@ -40,4 +40,4 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'faker', group: [:development, :test]
 gem 'capybara', group: [:development, :test]
-  gem 'rspec-rails', group: [:development, :test]
+gem 'rspec-rails', '~> 3.0.0', group: [:development, :test]
