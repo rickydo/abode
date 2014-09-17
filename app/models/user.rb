@@ -3,10 +3,10 @@ class User < ActiveRecord::Base
 
   has_secure_password
   belongs_to :dwelling
-  has_many :expenses
+  has_many :expenses, foreign_key: :payer_id
   has_many :user_expenses
   has_many :comments
 
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
-  validates :password, length: { min: 6 }
+  validates :password, length: { minimum: 6 }
 end
