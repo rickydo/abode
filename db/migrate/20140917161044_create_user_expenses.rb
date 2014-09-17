@@ -3,7 +3,7 @@ class CreateUserExpenses < ActiveRecord::Migration
     create_table :user_expenses do |t|
       t.integer :user_id
       t.integer :expense_id
-      t.decimal :owed
+      t.decimal :portion
       t.decimal :paid
 
       t.timestamps
