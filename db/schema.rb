@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20140917161225) do
 
   create_table "users", force: true do |t|
     t.string   "name"
+    t.integer  "dwelling_id"
     t.string   "email"
     t.string   "phone"
     t.string   "password_digest"
