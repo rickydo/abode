@@ -18,9 +18,18 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find_by(email: params[:user][:email])
+    @user.attributes = user_params
+    if @user.save
+      redirect_to action: "show", id: @user.id
+    else
+      flash.now[:error] = "Try again"
+      render :edit
+    end
   end
 
   private
