@@ -46,3 +46,8 @@ gem 'factory_girl_rails', '~> 4.0'
 
 gem 'launchy', group: [:development, :test]
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
