@@ -45,8 +45,33 @@ feature 'User browsing the site' do
     end
   end
 
+  context 'on edit page' do
+    before do
+      user = User.create(name: "User",
+                  email: "user@example.com",
+                  phone: "555-555-5555",
+                  password: "password",
+                  password_confirmation: "password" )
+      visit user_edit_path(user)
+    end
 
+    scenario 'fields are prefilled with user info' do
+      expect(page).to have_selector("input[value='User']")
+    end
 
+    scenario 'fields can be updated with new values' do
+      fill_in 'Name', with: 'Edited user'
+      fill_in 'Password', with: 'password'
+      fill_in 'Password confirmation', with: 'password'
+      click_button 'Update'
+      expect(page).to have_content("Welcome, Edited user")
+    end
 
+    scenario 'fields cannot be updated without password' do
+      fill_in 'Name', with: 'Edited user'
+      click_button 'Update'
+      expect(page).to have_content("Try again")
+    end
+  end
 
 end
