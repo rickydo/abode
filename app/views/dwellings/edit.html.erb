@@ -1,0 +1,6 @@
+<%= flash[:error]%>
+<%= form_for @dwelling, url: dwelling_update_path(@dwelling.id), method: :put do |f| %>
+  <%= f.text_field :name, placeholder: "Abode Name"%>
+  <%= f.text_field :address, placeholder: "Address"%>
+  <%= f.submit "Update Abode"%>
+<% end %>

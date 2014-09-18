@@ -15,7 +15,6 @@ house1 = Dwelling.create(address: "1238 W. Fulton", name: "winterfelyul", admin_
   user3 = house1.users.create(name: "brandon", email: "jhfgjfgh@gmail.com", phone: "6473341606", password: "password" )
   user4 = house1.users.create(name: "kyle", email: "sadffdsa@gmail.com", phone: "5473341606", password: "password" )
 
-
   user1.user_expenses.create(expense_id: expense1.id, portion: 600.00, paid: 0)
   user2.user_expenses.create(expense_id: expense1.id, portion: 500.00, paid: 0)
   user3.user_expenses.create(expense_id: expense1.id, portion: 500.00, paid: 0)
