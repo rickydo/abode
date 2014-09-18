@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'static_pages#home'
   get '/' => 'static_pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 
   get '/signin' => 'sessions#new', as: :new_session
   post '/signin' => 'sessions#create', as: :sessions
-  delete '/signout' => 'sessions#destroy', as: :session
+  delete '/signout' => 'sessions#destroy', as: :signout
   get '/abodes/new' => 'dwellings#new', as: :dwellings_new
   post '/abodes' => 'dwellings#create', as: :dwellings
   get '/abodes/:id' => 'dwellings#show', as: :dwelling_show
