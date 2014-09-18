@@ -11,8 +11,7 @@
 </div>
 
 <div id="user_expenses">
-  <ul><%= #render @user.user_expenses
-  %><ul>
+  <ul><%= render current_user.user_expenses %><ul>
 </div>
 
 <p>Send the code '<%= @dwelling.secret_key %>' to your roommates to let them join this abode.</p>

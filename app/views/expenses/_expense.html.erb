@@ -1,8 +1,7 @@
 <li>
   <div id="expense_<%=expense.id%>" class="expense" >
     Expense:
-    <%= expense.name %>
-    <%= expense.amount %>
+    <%= link_to "#{expense.name} #{expense.amount}", expense_show_path(expense) %>
     <%= expense.description %>
     payer: <%= expense.payer.name %>
       <div class="owers"><ul>
