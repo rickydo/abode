@@ -1,0 +1,15 @@
+<li>
+  <div id="expense-<%=expense.id%>" class="expense" >
+    Expense:
+    <%= expense.name %>
+    <%= expense.amount %>
+    <%= expense.description %>
+    payer: <%= expense.payer.name %>
+      <div class="owers"><ul>
+        OWERS:
+        <% expense.users.each do |user| %>
+          <li><%=user.name%></li>
+        <% end %>
+      </ul></div>
+  </div>
+</li>

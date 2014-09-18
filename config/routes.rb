@@ -13,6 +13,13 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new', as: :new_session
   post '/signin' => 'sessions#create', as: :sessions
   delete '/signout' => 'sessions#destroy', as: :session
+  get '/abodes/new' => 'dwellings#new', as: :dwellings_new
+  post '/abodes' => 'dwellings#create', as: :dwellings
+  get '/abodes/:id' => 'dwellings#show', as: :dwelling_show
+  get '/abodes/:id/edit' => 'dwellings#edit', as: :dwelling_edit
+  put '/abodes/:id' => 'dwellings#update', as: :dwelling_update
+
+  get '/abodes/:id/expenses' => 'expenses#index'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
