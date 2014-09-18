@@ -20,6 +20,10 @@ Rails.application.routes.draw do
   put '/abodes/:id' => 'dwellings#update', as: :dwelling_update
 
   get '/abodes/:id/expenses' => 'expenses#index'
+  post '/abodes/:id/expenses' => 'expenses#create', as: :expenses
+
+
+  # get '/abodes/:id/expenses/new' => 'expenses#new' as: :expenses_new
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

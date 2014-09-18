@@ -1,0 +1,9 @@
+<%= flash[:error] %>
+  <%= form_for expense do |f| %>
+    <%= f.text_field :name, placeholder: "Name" %>
+    <%= f.text_field :description, placeholder: "Description" %>
+    <%= f.number_field :amount, placeholder: "Amount" %>
+    <!-- Add field for payer id -->
+    <%= f.submit "Add Expense" %>
+  <% end %>
+
