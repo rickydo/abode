@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   get '/users/:id/edit' => 'users#edit', as: :user_edit
   put '/users/:id' => 'users#update', as: :user_update
 
-
   get '/abodes/expenses' => 'expenses#index', as: :expenses_list
 
   get '/signin' => 'sessions#new', as: :new_session
