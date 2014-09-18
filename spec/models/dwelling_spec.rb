@@ -19,9 +19,9 @@ describe Dwelling do
       expect(test_dwelling.total_paid).to eq(485)
     end
   end
-  describe "#count" do
-    xit "should return the number of dwellings in the database" do
-      expect(Dwelling.all.count).to eq(0)
-    end
-  end
+  # describe "#count" do
+  #   xit "should return the number of dwellings in the database" do
+  #     expect(Dwelling.all.count).to eq(0)
+  #   end
+  # end
 end

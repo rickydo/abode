@@ -1,0 +1,6 @@
+<%= flash[:error]%>
+<%= form_for @dwelling do |f| %>
+  <%= f.text_field :name, placeholder: "Abode Name"%>
+  <%= f.text_field :address, placeholder: "Address"%>
+  <%= f.submit "Create Abode"%>
+<% end %>

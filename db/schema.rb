@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140918152039) do
     t.string   "address"
     t.string   "name"
     t.integer  "admin_id"
+    t.string   "secret_key"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

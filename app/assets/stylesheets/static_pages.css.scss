@@ -11,8 +11,26 @@ body {
   margin: auto;
 }
 
+.sign-up {
+	box-sizing: border-box;
+	width: 320 px;
+	height: 140px;
+	background-color: white;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.sign-up a {
+	color: #03A89E;
+	text-align: center;
+	text-decoration: none;
+	font-size: 2em;
+	margin-top: 50%;
+}
+
+
 img {
   display: block;
   margin: auto;
-  width: 100%
+  width: 100%;
 }
