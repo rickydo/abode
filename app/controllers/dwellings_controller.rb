@@ -14,7 +14,7 @@ class DwellingsController < ApplicationController
   end
 
   def show
-    if current_user && current_user.dwelling_id.to_s == params[:id]
+    if current_user && current_user.dwelling.id.to_s == params[:id]
       @dwelling = Dwelling.find(params[:id])
     else
       redirect_to new_session_path

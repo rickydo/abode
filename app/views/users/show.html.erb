@@ -1,4 +1,5 @@
 <h1>Welcome, <%= @user.name %></h1>
-<p>Your abode is #!</p>
-<a href="#">Add Expense</a>
-<p>You currently owe $1M</p>
+<h2>Your abode</h2>
+<ul>
+  <li><%= link_to "#{@user.dwelling.name}", dwelling_show_path(@user.dwelling.id) %></li>
+</ul>
