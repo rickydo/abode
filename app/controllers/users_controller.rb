@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to action: "show", id: @user.id
+      redirect_to user_show_path(@user.id)
     else
       flash.now[:error] = "Try again"
       render :new
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:user][:email])
     @user.attributes = user_params
     if @user.save
-      redirect_to action: "show", id: @user.id
+      redirect_to user_show_path(@user.id)
     else
       flash.now[:error] = "Try again"
       render :edit

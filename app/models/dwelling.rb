@@ -18,6 +18,8 @@ class Dwelling < ActiveRecord::Base
     end
   end
 
+  private
+
   def create_secret_key
     begin
       secret_key = SecureRandom.urlsafe_base64(32)
