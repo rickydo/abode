@@ -6,7 +6,7 @@ class DwellingsController < ApplicationController
   def create
     @dwelling = Dwelling.new(dwelling_params)
     if @dwelling.save
-      redirect_to action: 'show', id: @dwelling.id
+      redirect_to dwelling_show_path(@dwelling.id) 
     else
       flash.now[:error] = "sorry that didn't save. Try again"
       render 'new'
