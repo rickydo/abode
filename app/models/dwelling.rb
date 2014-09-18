@@ -1,6 +1,7 @@
 class Dwelling < ActiveRecord::Base
   has_many :users
   has_many :expenses, through: :users
+  before_create :create_secret_key
 
 
   def total_expenses
@@ -17,4 +18,10 @@ class Dwelling < ActiveRecord::Base
     end
   end
 
+  def create_secret_key
+    begin
+      secret_key = SecureRandom.urlsafe_base64(32)
+    end while Dwelling.find_by(secret_key: secret_key)
+    self.secret_key = secret_key
+  end
 end
