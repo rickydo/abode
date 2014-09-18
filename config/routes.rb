@@ -12,17 +12,21 @@ Rails.application.routes.draw do
   put '/users/:id' => 'users#update', as: :user_update
 
   get '/abodes/expenses' => 'expenses#index', as: :expenses_list
+  post '/abodes/:id/expenses' => 'expenses#create', as: :expenses
+  get '/expenses/:id' => 'expenses#show', as: :expense_show
+  get '/expenses/:id/edit' => 'expenses#edit', as: :expense_edit
+  put '/expenses/:id' => 'expenses#update', as: :expense_update
 
   get '/signin' => 'sessions#new', as: :new_session
   post '/signin' => 'sessions#create', as: :sessions
   delete '/signout' => 'sessions#destroy', as: :signout
+
   get '/abodes/new' => 'dwellings#new', as: :dwellings_new
   post '/abodes' => 'dwellings#create', as: :dwellings
   get '/abodes/:id' => 'dwellings#show', as: :dwelling_show
   get '/abodes/:id/edit' => 'dwellings#edit', as: :dwelling_edit
   put '/abodes/:id' => 'dwellings#update', as: :dwelling_update
 
-  post '/abodes/:id/expenses' => 'expenses#create', as: :expenses
 
 
   # get '/abodes/:id/expenses/:expense_id' => 'expenses#show', as: :expenses_show

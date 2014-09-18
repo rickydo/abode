@@ -1,0 +1,10 @@
+<h2><%= @expense.dwelling.name %></h2>
+<h3> <%= @expense.name %>: <%= @expense.amount %> <%= link_to "Edit", expense_edit_path(@expense) %></h3>
+<h3>Amounts Owed:</h3>
+<% @expense.users.each do |user| %>
+<p><%= user.name %>: <%= user.user_expenses.find_by(expense_id: @expense.id).portion %></p>
+<% end %>
+
+<h3>Paid By:</h3>
+<%= @expense.payer.name %>
+
