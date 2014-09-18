@@ -13,7 +13,7 @@ class Dwelling < ActiveRecord::Base
 
   def total_paid
     self.expenses.reduce(0) do |sum, expense|
-      sum + expense.user_expenses.reduce(0) { |mini_sum, e| e.paid + mini_sum }
+      sum + expense.total_paid
     end
   end
 
