@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   get '/users/:id/edit' => 'users#edit', as: :user_edit
   put '/users/:id' => 'users#update', as: :user_update
 
+  get '/dwellings/new' => 'dwellings#new'
+  post '/dwellings' => 'dwellings#create'
+  get '/dwellings/:id' => 'dwellings#show', as: :dwellings_show
+  get '/dwellings/:id/edit' => 'dwellings#edit', as: :dwellings_edit
+  put '/dwellings/:id' => 'dwellings#update', as: :dwellings_update
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
