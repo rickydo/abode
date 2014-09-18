@@ -10,14 +10,27 @@ class ExpensesController < ApplicationController
     end
   end
 
-  # def show
-  #   @expense = Expense.find(params[:expense_id])
-  #   render partial: 'expense', locals: {expense: @expense}
-  # end
+  def show
+    @expense = Expense.find(params[:id])
+  end
 
   def index
     @dwelling = Dwelling.find(current_user.dwelling_id)
     render partial: @dwelling.expenses
+  end
+
+  def edit
+    @expense = Expense.find(params[:id])
+  end
+
+  def update
+    @expense = Expense.find(params[:id])
+    @expense.attributes = expense_params
+    if @expense.save
+      redirect_to expense_show_path(@expense)
+    else
+      render 'edit'
+    end
   end
 
   private

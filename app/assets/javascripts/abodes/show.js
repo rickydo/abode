@@ -6,11 +6,11 @@ $(document).ready(function(){
     request = $.ajax(action, {method: "post", data: data});
     request.done(function(response) {
       $("#new-expense-form-container").html(response);
-      fetch_expenses();
+      fetch_abode_expenses();
     });
   });
 
-  var fetch_expenses = function() {
+  var fetch_abode_expenses = function() {
     var action = "/abodes/expenses"
     request = $.ajax(action, {method: "get"});
     request.done(function(response) {
