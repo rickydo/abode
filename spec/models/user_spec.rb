@@ -2,6 +2,27 @@ require 'rails_helper'
 describe User do
   let(:test_user){User.first}
 
+  it { should belong_to(:dwelling) }
+  it { should have_many(:user_expenses) }
+  it { should have_many(:expenses).with_foreign_key(:payer_id) }
+  it { should validate_presence_of(:email) }
+  it { should validate_uniqueness_of(:email) }
+  it { should ensure_length_of(:password).is_at_least(6) }
+
+  describe '#email' do
+    it 'should create a user with a valid email' do
+      user = User.create(name: "Example User", email: "user@example.com",
+                     password: "foobar", password_confirmation: "foobar")
+      expect(user.id).should_not be_nil
+    end
+
+    it 'should not create a user with a invalid email' do
+      user = User.create(name: "Example User", email: "userexample.com",
+                     password: "foobar", password_confirmation: "foobar")
+      expect(user.id).to be_nil
+    end
+  end
+
   describe "#authenticate" do
     it "can authenticate a user" do
       expect(test_user.authenticate("password")).to be_truthy
@@ -32,8 +53,8 @@ describe User do
       expect{@user.remember_token}.should_not be_nil
     end
 
-    it 'should have a different token after signout' do
-      expect{@user.destroy}.to change{@user.}
+    pending 'should have a different token after signout' do
+      expect{@user.destroy}.to change{@user.remember_token}
     end
   end
 end
