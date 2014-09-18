@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get '/users/:id/edit' => 'users#edit', as: :user_edit
   put '/users/:id' => 'users#update', as: :user_update
 
+
+  get '/abodes/expenses' => 'expenses#index', as: :expenses_list
+
   get '/signin' => 'sessions#new', as: :new_session
   post '/signin' => 'sessions#create', as: :sessions
   delete '/signout' => 'sessions#destroy', as: :signout
@@ -20,7 +23,12 @@ Rails.application.routes.draw do
   get '/abodes/:id/edit' => 'dwellings#edit', as: :dwelling_edit
   put '/abodes/:id' => 'dwellings#update', as: :dwelling_update
 
-  get '/abodes/:id/expenses' => 'expenses#index'
+  post '/abodes/:id/expenses' => 'expenses#create', as: :expenses
+
+
+  # get '/abodes/:id/expenses/:expense_id' => 'expenses#show', as: :expenses_show
+
+  # get '/abodes/:id/expenses/new' => 'expenses#new' as: :expenses_new
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

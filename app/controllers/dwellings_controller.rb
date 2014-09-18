@@ -6,7 +6,7 @@ class DwellingsController < ApplicationController
   def create
     @dwelling = Dwelling.new(dwelling_params)
     if @dwelling.save
-      redirect_to dwelling_show_path(@dwelling.id) 
+      redirect_to dwelling_show_path(@dwelling.id)
     else
       flash.now[:error] = "sorry that didn't save. Try again"
       render 'new'
@@ -14,7 +14,11 @@ class DwellingsController < ApplicationController
   end
 
   def show
-    @dwelling = Dwelling.find(params[:id])
+    if current_user && current_user.dwelling_id.to_s == params[:id]
+      @dwelling = Dwelling.find(params[:id])
+    else
+      redirect_to new_session_path
+    end
   end
 
   def edit
