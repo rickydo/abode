@@ -5,7 +5,7 @@
   <div id="expenses-list">
     <ul><%= render @dwelling.expenses %><ul>
   </div>
-  <div id"new-expense-form-container">
+  <div id="new-expense-form-container">
     <%= render partial: "expenses/new", locals: {expense: Expense.new, dwelling_id: @dwelling.id} %>
   </div>
 </div>
