@@ -27,14 +27,14 @@ class DwellingsController < ApplicationController
     if @dwelling.save
       redirect_to action: "show", id: @dwelling.id
     else
-
+      flash.now[:error] = "Try again"
+      render :edit
     end
   end
 
   def dwelling_params
     params.require(:dwelling).permit(:name, :address)
   end
-
 
 end
 
