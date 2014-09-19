@@ -4,6 +4,7 @@ class CreateDwellings < ActiveRecord::Migration
       t.string :name
       t.string :address
       t.belongs_to :admin
+      t.string :secret_key
 
       t.timestamps
     end
