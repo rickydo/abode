@@ -10,8 +10,11 @@
   <nav>
     <ul>
       <% if signed_in? %>
-        <li><%= link_to "Profile", user_show_path %></li>
+        <li><%= link_to "Profile", user_show_path(current_user) %></li>
         <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+        <% if current_user.dwelling != nil %>
+          <%= link_to "Abode", dwelling_show_path(current_user.dwelling) %>
+        <% end %>
       <% else %>
         <li><%= link_to "Sign in", new_session_path %></li>
       <% end %>

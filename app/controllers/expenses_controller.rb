@@ -33,6 +33,13 @@ class ExpensesController < ApplicationController
     end
   end
 
+  def destroy
+    expense = Expense.find(params[:id])
+    dwelling = expense.dwelling
+    expense.destroy
+    redirect_to dwelling_show_path(dwelling)
+  end
+
   private
 
   def expense_params

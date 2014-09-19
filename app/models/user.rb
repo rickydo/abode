@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
 
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, on: :create
 
   def total_expenses
     self.user_expenses.reduce(0) { |sum, e| e.portion + sum}
