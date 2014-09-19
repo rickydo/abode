@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe ExpensesController do
   before do
-    @current_user = User.first
+    dwelling = Dwelling.create!(name: "hoooooome", address: "12345 Lane St.")
+    @current_user=User.create!(name: "zac", email: "zacmitton22@gmail.com", phone: "8473341606", password: "password", dwelling_id: dwelling.id)
+    Expense.create!(name: "rent", description: "so expensive", amount: 400, payer_id: @current_user.id)
   end
 
   describe 'create expense' do

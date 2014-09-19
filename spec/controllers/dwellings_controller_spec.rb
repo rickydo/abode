@@ -1,8 +1,13 @@
 require 'rails_helper'
+include SessionsHelper
 
 describe DwellingsController do
   describe "creating a dwelling" do
-    before { get :new }
+    before {
+      test_user=User.create!(name: "zac", email: "zacmitton22@gmail.com", phone: "8473341606", password: "password")
+      sign_in(test_user)
+      get :new
+    }
 
     it 'should show page with form to make a new dwelling' do
       expect(response.status).to eq 200

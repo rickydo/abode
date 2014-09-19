@@ -10,13 +10,13 @@ describe UsersController do
     end
 
     it 'should redirect to show page if user is created successfully' do
-      post :create, user: {name: "User", email: "user@example.com", password: "password", password_confirmation: "password"}
+      post :create, user: {name: "User", email: "test@example.com", password: "password", password_confirmation: "password"}
 
       expect(response).to redirect_to(user_show_path(assigns(:user)))
     end
 
     it 'should render the page again if the user is not created successfully' do
-      post :create, user: {name: "User", email: "user@example", password: "password", password_confirmation: "password"}
+      post :create, user: {name: "User", email: "test@example", password: "password", password_confirmation: "password"}
 
       expect(response).to render_template(:new)
     end
@@ -24,7 +24,7 @@ describe UsersController do
 
   describe 'show' do
     before do
-      @user = User.create(name: "User", email: "user@example.com", password: "password", password_confirmation: "password")
+      @user = User.create!(name: "User", email: "test@example.com", password: "password", password_confirmation: "password")
     end
 
     it 'should show user profile' do
@@ -35,7 +35,7 @@ describe UsersController do
 
   describe 'edit' do
     before do
-      @user = User.create(name: "User", email: "user@example.com", password: "password", password_confirmation: "password")
+      @user = User.create(name: "User", email: "test@example.com", password: "password", password_confirmation: "password")
     end
 
     it 'should show edit page' do
@@ -44,12 +44,12 @@ describe UsersController do
     end
 
     it 'should redirect to show page if edited successfully' do
-      put :update, id: @user.id, user: {name: "User updated", email: "user@example.com", password: "password", password_confirmation: "password"}
+      put :update, id: @user.id, user: {name: "User updated", email: "test@example.com", password: "password", password_confirmation: "password"}
       expect(response).to redirect_to(user_update_path(assigns(:user)))
     end
 
     it 'should render edit page again if edited unsuccessfully' do
-      put :update, id: @user.id, user: {name: "User updated", email: "user@example.com", password: "pass", password_confirmation: "pass"}
+      put :update, id: @user.id, user: {name: "User updated", email: "test@example.com", password: "pass", password_confirmation: "pass"}
       expect(response).to render_template(:edit)
     end
 

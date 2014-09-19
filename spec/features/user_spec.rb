@@ -1,15 +1,15 @@
-require 'rails_helper'
+  require 'rails_helper'
 
 feature 'User browsing the site' do
   context 'on sign up form' do
-    before { visit users_new_path }
+    before { visit signup_path }
     scenario 'sees the signup form' do
       expect(page).to have_selector(:button, "Sign Up")
     end
 
     scenario 'can fill in and submit form with valid info' do
       fill_in 'Name', with: 'User'
-      fill_in 'Email', with: 'user@example.com'
+      fill_in 'Email', with: 'user@bad_example.com'
       fill_in 'Phone', with: '555-555-5555'
       fill_in 'Password', with: 'password'
       fill_in 'Password confirmation', with: 'password'
@@ -27,7 +27,7 @@ feature 'User browsing the site' do
     end
 
     scenario 'cannot submit form with nonmatching password' do
-      fill_in 'Email', with: 'user@example.com'
+      fill_in 'Email', with: 'user@bad_example.com'
       fill_in 'Phone', with: '555-555-5555'
       fill_in 'Password', with: 'password_raw'
       fill_in 'Password confirmation', with: 'password'
@@ -36,7 +36,7 @@ feature 'User browsing the site' do
     end
 
     scenario 'cannot submit form with password that is too short' do
-      fill_in 'Email', with: 'user@example.com'
+      fill_in 'Email', with: 'user@bad_example.com'
       fill_in 'Phone', with: '555-555-5555'
       fill_in 'Password', with: 'pass'
       fill_in 'Password confirmation', with: 'pass'
@@ -48,7 +48,7 @@ feature 'User browsing the site' do
   context 'on edit page' do
     before do
       user = User.create(name: "User",
-                  email: "user@example.com",
+                  email: "user@bad_example.com",
                   phone: "555-555-5555",
                   password: "password",
                   password_confirmation: "password" )
