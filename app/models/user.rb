@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
   belongs_to :dwelling
-  has_one :admin_dwelling, foreign_key: "admin_id"
+  has_one :admin_dwelling, foreign_key: "admin_id", class_name: "Dwelling"
   has_many :expenses, foreign_key: "payer_id"
   has_many :user_expenses
 
   validates :email, presence: true, uniqueness: true, format: {with: /\w+@\w+\..+/}
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, on: :create
 
   has_secure_password
 
